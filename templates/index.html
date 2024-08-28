@@ -21,6 +21,13 @@
 </head>
 <style>
     :root {
+        --level: {
+                {
+                tech.level
+            }
+        }
+
+        ;
         --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
     }
 
@@ -29,7 +36,7 @@
         top: 40%;
         left: 50%;
         font-size: 50px;
-        color: white;
+        color: rgb(6, 6, 6);
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
     }
@@ -135,9 +142,9 @@
         <!-- Loader -->
 
         <!-- Navbar -->
-        <div class="">
+        <div id="home">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#home">LEOWEB</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -147,31 +154,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#profile">Profile</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <a class="nav-link" href="#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </nav>
         </div>
@@ -182,23 +179,20 @@
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{%static 'images/S1-1.jpg' %}" alt="First slide">
-                    <div class="mask text-light d-flex justify-content-center flex-column text-center"
+                    <img class="d-block w-100" src="{%static 'images/images/chat.jpg' %}" alt="First slide">
+                    <!-- <div class="mask text-light d-flex justify-content-center flex-column text-center"
                         style="background-color: rgba(0, 0, 0, 0.5)">
                         <h4>Custom heading</h4>
                         <p class="m-0">paragraph</p>
-                    </div>
-                </div>
-
-                <!-- <div class="carousel-item">
-                        <img class="d-block w-100" src="{%static 'images/S1-1.jpg' %}" alt="First slide" alt="Second slide">
                     </div> -->
+                </div>
                 <div class="carousel-item overlayy">
-                    <img class="d-block w-100" src="{%static 'images/S1-1.jpg' %}" alt="First slide" alt="Third slide">
+                    <img class="d-block w-100" src="{%static 'images/images/Picture1copy.png' %}" alt="First slide"
+                        alt="Third slide">
                     <div class="overlayytext">herein</div>
                 </div>
             </div>
@@ -212,52 +206,29 @@
             </a>
         </div>
         <!-- Carousel -->
-
+        <div class="text-center">
+            <h1 class="display-4 font-weight-bolder">PROFILE</h1>
+        </div>
         <div class="container">
             <div class="main-body">
-
-                <!-- Breadcrumb -->
-                <!-- <nav aria-label="breadcrumb" class="main-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-                    </ol>
-                </nav> -->
-                <!-- /Breadcrumb -->
-
                 <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3" id="profile">
                         <div class="cardprofile">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
-                                        class="rounded-circle" width="150">
+                                    <img src="{{profile.file.url}}" alt="Admin" class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4>John Doe</h4>
-                                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                        <button class="btn btn-primary">Follow</button>
-                                        <button class="btn btn-outline-primary">Message</button>
+                                        <h4>{{profile.name}}</h4>
+                                        <p class="text-secondary mb-1">{{profile.role}}</p>
+                                        <p class="text-muted font-size-sm">{{profile.location}}</p>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card mt-3">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-globe mr-2 icon-inline">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                                            <path
-                                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                            </path>
-                                        </svg>Website</h6>
-                                    <span class="text-secondary">https://bootdey.com</span>
-                                </li>
+
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -267,7 +238,7 @@
                                                 d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                             </path>
                                         </svg>Github</h6>
-                                    <span class="text-secondary">bootdey</span>
+                                    <span class="text-secondary"><a href="{{profile.github}}">Github</a></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -277,8 +248,8 @@
                                             <path
                                                 d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                                             </path>
-                                        </svg>Twitter</h6>
-                                    <span class="text-secondary">@bootdey</span>
+                                        </svg>X</h6>
+                                    <span class="text-secondary"><a href="{{profile.twitter}}">X</a></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -289,7 +260,7 @@
                                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                         </svg>Instagram</h6>
-                                    <span class="text-secondary">bootdey</span>
+                                    <span class="text-secondary"><a href="{{profile.instagram}}">Instagram</a></span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -299,7 +270,7 @@
                                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
                                             </path>
                                         </svg>Facebook</h6>
-                                    <span class="text-secondary">bootdey</span>
+                                    <span class="text-secondary"><a href="{{profile.facebook}}">Facebook</a></span>
                                 </li>
                             </ul>
                         </div>
@@ -312,7 +283,7 @@
                                         <h6 class="mb-0">Full Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Kenneth Valdez
+                                        {{profile.name}}
                                     </div>
                                 </div>
                                 <hr>
@@ -321,7 +292,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        fip@jukmuh.al
+                                        {{profile.email}}
                                     </div>
                                 </div>
                                 <hr>
@@ -330,16 +301,7 @@
                                         <h6 class="mb-0">Phone</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        (239) 816-9029
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Mobile</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        (320) 380-4539
+                                        {{profile.mobile}}
                                     </div>
                                 </div>
                                 <hr>
@@ -348,15 +310,15 @@
                                         <h6 class="mb-0">Address</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Bay Area, San Francisco, CA
+                                        {{profile.location}}
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <!-- <div class="col-sm-12">
                                         <a class="btn btn-info " target="__blank"
                                             href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -364,34 +326,20 @@
                         <div class="row gutters-sm">
                             <div class="col-sm-6 mb-3">
                                 <div class="cardprofile h-100">
-                                    <div class="card-body">
+                                    <div class="card-body" id="services">
                                         <h6 class="d-flex align-items-center mb-3"><i
-                                                class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                        <small>Web Design</small>
+                                                class="material-icons text-info mr-2"></i>Services</h6>
+                                        {% for service in services %}
+                                        <small>{{service.name}}</small>
                                         <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div id="serv{{service.id}}" class="progress-bar bg-primary"
+                                                role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <small>Website Markup</small>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 72%"
-                                                aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <small>One Page</small>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 89%"
-                                                aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <small>Mobile Template</small>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"
-                                                aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <small>Backend API</small>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
-                                                aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        <script>
+                                            document.getElementById('serv{{service.id}}').style.width = '{{service.level}}'
+                                            document.getElementById('serv{{service.id}}').ariaValueNow = '{{service.level}}'
+                                        </script>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -442,9 +390,9 @@
         <div class="text-center">
             <h1 class="display-4 font-weight-bolder">SKILLS</h1>
         </div>
-        <div class="card-columns">
+        <div class="card-columns" id="skills">
             <!-- Javascript -->
-            <div class="card">
+            <!-- <div class="card">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                     <path fill="#ffd600" d="M6,42V6h36v36H6z"></path>
                     <path fill="none" stroke="#000001" stroke-miterlimit="10" stroke-width="3.3"
@@ -462,10 +410,10 @@
                     <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25"
                         aria-valuemin="0" aria-valuemax="100">70%</div>
                 </div>
-            </div>
+            </div> -->
             <!-- EndJavascript -->
             <!-- Excel -->
-            <div class="card p-3">
+            <!-- <div class="card p-3">
                 <img src="https://img.icons8.com/?size=100&id=13654&format=png&color=000000" />
                 <blockquote class="blockquote mb-0 card-body">
                     <p>2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -479,23 +427,27 @@
                     <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
                         aria-valuemin="0" aria-valuemax="100">80%</div>
                 </div>
-            </div>
+            </div> -->
             <!-- EndExcel -->
             <!-- Django -->
+            {%for tech in technologies%}
             <div class="card">
-                <img src="https://img.icons8.com/?size=100&id=qV-JzWYl9dzP&format=png&color=000000" class="card-img-top"
-                    alt="...">
+                <img src="{{tech.file}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card titleer</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">{{tech.name}}</h5>
+                    <p class="card-text">{{tech.description}}</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                 </div>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
-                        aria-valuemin="0" aria-valuemax="100">90%</div>
+                    <div class="progress-bar" role="progressbar" id="{{tech.id}}" aria-valuemin="0" aria-valuemax="100">
+                        {{tech.level}}</div>
                 </div>
+                <script>
+                    document.getElementById('{{tech.id}}').style.width = '{{tech.level}}'
+                    document.getElementById('{{tech.id}}').ariaValueNow = '{{tech.level}}'
+                </script>
             </div>
+            {%endfor%}
             <!-- EndDjango -->
             <!-- Skills Center -->
             <!-- <div class="card bg-primary text-white text-center p-3">
@@ -511,7 +463,7 @@
             </div> -->
             <!-- EndSkills Center -->
             <!-- Mysql -->
-            <div class="card text-center">
+            <!-- <div class="card text-center">
                 <img src="https://img.icons8.com/?size=100&id=qGUfLiYi1bRN&format=png&color=000000" />
                 <div class="card-body">
                     <h5 class="card-title">Card titles</h5>
@@ -522,10 +474,10 @@
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
                         aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
-            </div>
+            </div> -->
             <!-- EndMysql -->
             <!-- DjangoRest -->
-            <div class="card">
+            <!-- <div class="card">
                 <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="m64.347 41.619v4.2915h-19.475l-0.02875-0.02794-0.02794 0.02794h-38.119a0.069444 0.069444 0 0 0-0.069437 0.06944v18.955h-6.127v0.41662h6.127v18.717a0.069444 0.069444 0 0 0 0.069437 0.06944h18.837v8.5399h0.41662v-8.5399h18.685v0.06971h0.11039l0.0971 0.09737 0.10063-0.09737h0.1085v-0.06971h19.295v3.0463h0.41662v-3.0463h19.377v0.06971h0.1085l0.10063 0.09737 0.0971-0.09737h0.11039v-0.06971h18.674v4.1551h0.41662v-4.1551h18.849a0.069444 0.069444 0 0 0 0.0694-0.06944v-18.717h4.9341v-0.41662h-4.9341v-18.955a0.069444 0.069444 0 0 0-0.0694-0.06944h-18.849v-0.01302h-0.41662v0.01302h-18.853l-0.02794-0.02794-0.02875 0.02794h-19.557v-4.2915zm-57.484 4.4304h18.67v18.709zm19.087 0h18.685v0.040415l-18.685 18.656zm19.102 0h19.295v18.706l-19.295-18.671zm19.712 0h19.377v0.03553l-19.377 18.75zm19.793 0h18.674v18.685l-18.674-18.645zm19.09 0h18.682l-18.682 18.721zm-96.882 0.09846 18.747 18.787h-18.747zm115.66 0v18.787h-18.747zm-77.375 0.13019 19.28 18.657h-19.28zm39.088 0v18.657h-19.28zm-39.505 0.0081v18.648h-18.677zm39.922 0 18.674 18.645v0.0035h-18.674zm-77.791 19.065h18.578l-18.578 18.55zm19.359 0h18.51v18.549zm18.927 0h19.178l-19.178 18.558zm19.911 0h19.178v18.558zm19.595 0h18.51l-18.51 18.549zm19.09 0h4e-3l18.676 18.648h-18.681zm0.20099 0h18.578v18.55zm-39.085 0.0011 19.27 18.647h-19.27zm-39.23 0.0062v18.64h-18.669zm0.41662 0.01383 18.588 18.626h-18.588zm77.281 0.01139v18.615h-18.576zm-38.884 0.04774v18.567h-19.188z"
@@ -544,9 +496,9 @@
                     <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
                         aria-valuemin="0" aria-valuemax="100">80%</div>
                 </div>
-            </div>
+            </div> -->
             <!--EndDjangoRest -->
-            <div class="card p-3 text-right">
+            <!-- <div class="card p-3 text-right">
                 <blockquote class="blockquote mb-0">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
                     <footer class="blockquote-footer">
@@ -555,7 +507,7 @@
                         </small>
                     </footer>
                 </blockquote>
-            </div>
+            </div> -->
 
         </div>
         <!-- ENDSKILLS -->
@@ -564,88 +516,29 @@
         <div class="text-center">
             <h1 class="display-4 font-weight-bolder">PROJECTS</h1>
         </div>
-        <div class="container mx-auto mt-4" style="align-content: center;">
+        <div id="projects" class="container mx-auto mt-4" style="align-content: center;">
             <div class="row">
+                {% for project in projects %}
                 <div class="col-md-4">
                     <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
+                        <img src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000"
+                            class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btn "><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btnprojects mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btnprojects "><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btnprojects mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btnprojects "><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                </div>
+                            <h5 class="card-title">{{project.name}}</h5>
+                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                            <p class="card-text">{{project.description}}</p>
+                            {% if project.website_link %}
+                            <a href="{{project.website_link}}" class="btnprojects mr-2"><i class="fas fa-link"></i>
+                                Visit Site</a>
+                            {%else%}
+                            {%endif%}
+                            <a href="{{project.project_link}}" class="btnprojects "><i class="fab fa-github"></i>
+                                Github</a>
 
-                <div class="col-md-4">
-                    <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btn "><i class="fab fa-github"></i> Github</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btnprojects mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btnprojects "><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="cardprojects" style="width: 18rem;">
-                        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btnprojects mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                            <a href="#" class="btnprojects "><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                </div>
-
+                {%endfor%}
 
             </div>
         </div>
