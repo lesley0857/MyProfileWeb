@@ -13,6 +13,8 @@ class Profile(models.Model):
     twitter = models.CharField(max_length=100, blank=False)
     location = models.TextField(max_length=100, blank=False)
     file = models.FileField(upload_to='images', null=True, blank=True)
+    herofile = models.FileField(upload_to='images', null=True, blank=True)
+
 
     def __str__(self):
         return f'{self.name}'

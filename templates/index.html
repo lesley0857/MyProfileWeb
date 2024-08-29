@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LEO SERVICES</title>
+    <link rel="icon" href="{%static '/images/images/Leo_Services_Logo.png'%}" type="image/icon type">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -144,7 +145,8 @@
         <!-- Navbar -->
         <div id="home">
             <nav class="navbar  fixed-top navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="#home">LEOWEB</a>
+                <a class="navbar-brand" href="#home"><img style="width:60px;"
+                        src="{%static '/images/images/Leo_Services_Logo.png'%}" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -176,18 +178,20 @@
 
         <!-- Hero -->
         <div class=" text-center bg-image" style=" padding: 0;
-            background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
-            height: 600px;
+            background-image: url('{{profile.herofile.url}}');
+          background-size:cover;
+            height: 100vh; 
           ">
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height:100%;width: 100%;">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); height:100%;width: 100%;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-white">
-                        <h3 class="mb-3">Heading</h3>
-                        <h3 class="mb-3">Heading</h3>
-                        <h4 class="mb-3">Subheading</h4>
+                        <h3 class="mb-2">Hello, I'm Lesley Oluoma (LEO),
+                        </h3>
+                        <h3 class="mb-2">a backend developer and</h3>
+                        <h3 class="mb-2">Excel data analyst</h3>
                         <a data-mdb-ripple-init class="btn btn-outline-light btn-lg"
                             href="https://wa.me/+231881428858?text=Hi%20LEO,%20from%20your%20Web-Profile"
-                            role="button">Whatsapp Me</a>
+                            role="button">Lets Talk Business</a>
                     </div>
                 </div>
             </div>
@@ -372,68 +376,108 @@
 
 
     <!-- TECHNOLOGIES -->
-    <div class="text-center">
-        <h1 class="display-4 font-weight-bolder">SKILLS</h1>
-    </div>
-    <div class="card-columns" id="technologies">
-
-        {%for tech in technologies%}
-        <div class="card">
-            <!-- <img src="{{tech.file}}" class="card-img-top" alt="..."> -->
-            <div>{{tech.file|safe}}</div>
-            <div class="card-body">
-                <h5 class="card-title">{{tech.name}}</h5>
-                <p class="card-text">{{tech.description}}</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            </div>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" id="{{tech.id}}" aria-valuemin="0" aria-valuemax="100">
-                    {{tech.level}}</div>
-            </div>
-            <script>
-                document.getElementById('{{tech.id}}').style.width = '{{tech.level}}'
-                document.getElementById('{{tech.id}}').ariaValueNow = '{{tech.level}}'
-            </script>
+    <div class="container" style="padding: 0.5em;">
+        <div class="text-center">
+            <h1 class="display-4 font-weight-bolder">TECHNOLOGIES</h1>
         </div>
-        {%endfor%}
+        <div class="card-columns" id="technologies">
+
+            {%for tech in technologies%}
+            <div class="card">
+                <!-- <img src="{{tech.file}}" class="card-img-top" alt="..."> -->
+                <div>{{tech.file|safe}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{tech.name}}</h5>
+                    <p class="card-text">{{tech.description}}</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" id="{{tech.id}}" aria-valuemin="0" aria-valuemax="100">
+                        {{tech.level}}</div>
+                </div>
+                <script>
+                    document.getElementById('{{tech.id}}').style.width = '{{tech.level}}'
+                    document.getElementById('{{tech.id}}').ariaValueNow = '{{tech.level}}'
+                </script>
+            </div>
+            {%endfor%}
+        </div>
     </div>
     <!-- END TECHNOLOGIES -->
 
     <!-- PROJECTS -->
-    <div class="text-center">
-        <h3 class="display-4 font-weight-bolder">RECENT PROJECTS</h3>
-    </div>
-    <div id="projects" class="container mx-auto mt-4" style="align-content: center;">
-        <div class="row">
-            {% for project in projects %}
-            <div class="col-md-4">
-                <div class="cardprojects" style="width: 18rem;">
-                    <img src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{project.name}}</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                        <p class="card-text">{{project.description}}</p>
-                        {% if project.website_link %}
-                        <a href="{{project.website_link}}" class="btnprojects mr-2"><i class="fas fa-link"></i>
-                            Visit Site</a>
-                        {%else%}
-                        {%endif%}
-                        <a href="{{project.project_link}}" class="btnprojects "><i class="fab fa-github"></i>
-                            Github</a>
+    <div class="container">
+        <div class="text-center">
+            <h3 class="display-4 font-weight-bolder">RECENT PROJECTS</h3>
+        </div>
+        <div id="projects" class="container mx-auto mt-4" style="align-content: center;">
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="cardprojects" style="width: 18rem;">
+                        <img src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{project.name}}</h5>
+                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                            <p class="card-text">{{project.description}}</p>
+                            {% if project.website_link %}
+                            <a href="{{project.website_link}}" class="btnprojects mr-2"><i class="fas fa-link"></i>
+                                Visit Site</a>
+                            {%else%}
+                            {%endif%}
+                            <a href="{{project.project_link}}" class="btnprojects "><i class="fab fa-github"></i>
+                                Github</a>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            {%endfor%}
+                {%endfor%}
 
+            </div>
         </div>
     </div>
     <!-- ENDPROJECTS -->
-    </div>
+    <footer class="bg-body-tertiary text-center bg-primary">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+                    href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
-    <!-- 
-    Scripts -->
+                <!-- Twitter -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;"
+                    href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
+                    href="#!" role="button"><i class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
+                    href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
+                    href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Github -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
+                    href="#!" role="button"><i class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2020 Copyright:
+            <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
