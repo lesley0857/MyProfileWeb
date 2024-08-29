@@ -23,7 +23,7 @@ class Technologies(models.Model):
         Profile, on_delete=models.CASCADE, null=True, blank=True, related_name='technologies')
     description = models.TextField(max_length=100, blank=False)
     level = models.TextField(max_length=3, blank=False, null=True)
-    file = models.CharField(max_length=1500, blank=False,null=True)
+    file = models.TextField(max_length=15000, blank=False,null=True)
 
     def __str__(self):
         return f'{self.name}'
