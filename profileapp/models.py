@@ -47,7 +47,7 @@ class Projects(models.Model):
     name = models.CharField(max_length=150, blank=False)
     user = models.ForeignKey(
         Profile, on_delete=models.CASCADE, null=True, blank=True, related_name='projects')
-    description = models.TextField(max_length=100, blank=False)
+    description = models.TextField(max_length=400, blank=False)
     project_link = models.CharField(max_length=150, blank=False,null=True)
     website_link = models.CharField(max_length=150, blank=True,null=True)
     file = models.CharField(max_length=150, blank=False,null=True)

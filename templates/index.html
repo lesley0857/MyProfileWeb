@@ -221,7 +221,7 @@
 
     <!-- ABOUT ME -->
     <div class="text-center">
-        <h1 class="display-6 font-weight-bolder">ABOUT ME</h1>
+        <h3 class="display-6 font-weight-bolder">ABOUT ME</h3>
     </div>
     <div class="container">
         <div class="main-body">
@@ -375,7 +375,7 @@
 
     <!-- Services -->
     <div class="text-center">
-        <h1 class="display-6 font-weight-bolder">SERVICES</h1>
+        <h3 class="display-6 font-weight-bolder">SERVICES</h3>
     </div>
     <div class="container" id="services">
         <div class="row gutters-sm">
@@ -407,7 +407,7 @@
     <!-- TECHNOLOGIES -->
     <div class="container" style="padding: 0.5em;">
         <div class="text-center">
-            <h1 class="display-6 font-weight-bolder">TECHNOLOGIES</h1>
+            <h3 class="display-6 font-weight-bolder">TECHNOLOGIES</h3>
         </div>
         <div class="card-columns" id="technologies">
 
@@ -468,14 +468,21 @@
     </div>
     <!-- ENDPROJECTS -->
     <!-- Client Review -->
+    <div class="text-center">
+        <h3 class="display-6 font-weight-bolder">CLIENT REVIEWS</h3>
+    </div>
     <div class="container mt-5 d-flex justify-content-center ">
         <div class="row">
             {% for client in clients %}
             <div class="col-md-4">
                 <div class="maincard p-3">
                     <div class="thecard">
-                        <div class="thefront text-center py-4"> <img src="{{client.file.url}}"
-                                class="rounded-circle mt-5" width="100">
+                        <div class="thefront text-center py-4">
+                            {% if client.file %}
+                            <img src="{{client.file.url}}" class="rounded-circle mt-5" width="100">
+                            {%else%}
+                            <img src="" class="rounded-circle mt-5" width="100">
+                            {%endif%}
                             <h3 class="mt-2 mb-0">{{client.name}}</h3> <small class="user_name">{{client.role}}</small>
                         </div>
                         <div class="theback py-3 px-3">
